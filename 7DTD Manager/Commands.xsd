@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Commands"
+    targetNamespace="http://tempuri.org/Commands.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/Commands.xsd"
+    xmlns:mstns="http://tempuri.org/Commands.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="Commands" type="CommandType"></xs:element>
+  <xs:complexType name="CommandType">
+    <xs:sequence>
+      <xs:element name ="Command" type="xs:string"></xs:element>
+      <xs:element name ="Ticks" type ="xs:positiveInteger"></xs:element>
+      <xs:element name ="Enabled" type ="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

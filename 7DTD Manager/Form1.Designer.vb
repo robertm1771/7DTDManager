@@ -35,13 +35,15 @@ Partial Class Form1
         Me.bntListplayers = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BntSend = New System.Windows.Forms.Button()
         Me.txtboxConsole = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.bntRun = New System.Windows.Forms.Button()
+        Me.bntLoad = New System.Windows.Forms.Button()
+        Me.bntSave = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ColTxtBox = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColTimeMS = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColEnable = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.BntStop = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -148,7 +150,7 @@ Partial Class Form1
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.Button1)
+        Me.TabPage1.Controls.Add(Me.BntSend)
         Me.TabPage1.Controls.Add(Me.txtboxConsole)
         Me.TabPage1.Controls.Add(Me.RichTextBox1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
@@ -159,15 +161,15 @@ Partial Class Form1
         Me.TabPage1.Text = "Console"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'Button1
+        'BntSend
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(734, 513)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(59, 23)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Send"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BntSend.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BntSend.Location = New System.Drawing.Point(734, 513)
+        Me.BntSend.Name = "BntSend"
+        Me.BntSend.Size = New System.Drawing.Size(59, 23)
+        Me.BntSend.TabIndex = 10
+        Me.BntSend.Text = "Send"
+        Me.BntSend.UseVisualStyleBackColor = True
         '
         'txtboxConsole
         '
@@ -180,7 +182,11 @@ Partial Class Form1
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.BntStop)
         Me.TabPage2.Controls.Add(Me.DataGridView1)
+        Me.TabPage2.Controls.Add(Me.bntRun)
+        Me.TabPage2.Controls.Add(Me.bntLoad)
+        Me.TabPage2.Controls.Add(Me.bntSave)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -189,30 +195,52 @@ Partial Class Form1
         Me.TabPage2.Text = "Message"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'bntRun
+        '
+        Me.bntRun.Location = New System.Drawing.Point(6, 514)
+        Me.bntRun.Name = "bntRun"
+        Me.bntRun.Size = New System.Drawing.Size(75, 23)
+        Me.bntRun.TabIndex = 3
+        Me.bntRun.Text = "Run"
+        Me.bntRun.UseVisualStyleBackColor = True
+        '
+        'bntLoad
+        '
+        Me.bntLoad.Location = New System.Drawing.Point(719, 514)
+        Me.bntLoad.Name = "bntLoad"
+        Me.bntLoad.Size = New System.Drawing.Size(75, 23)
+        Me.bntLoad.TabIndex = 2
+        Me.bntLoad.Text = "Load"
+        Me.bntLoad.UseVisualStyleBackColor = True
+        '
+        'bntSave
+        '
+        Me.bntSave.Location = New System.Drawing.Point(638, 514)
+        Me.bntSave.Name = "bntSave"
+        Me.bntSave.Size = New System.Drawing.Size(75, 23)
+        Me.bntSave.TabIndex = 1
+        Me.bntSave.Text = "Save"
+        Me.bntSave.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColTxtBox, Me.ColTimeMS, Me.ColEnable})
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 6)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(788, 500)
-        Me.DataGridView1.TabIndex = 0
+        Me.DataGridView1.Size = New System.Drawing.Size(797, 508)
+        Me.DataGridView1.TabIndex = 4
         '
-        'ColTxtBox
+        'BntStop
         '
-        Me.ColTxtBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ColTxtBox.HeaderText = "Console String"
-        Me.ColTxtBox.Name = "ColTxtBox"
-        '
-        'ColTimeMS
-        '
-        Me.ColTimeMS.HeaderText = "Time MS"
-        Me.ColTimeMS.Name = "ColTimeMS"
-        '
-        'ColEnable
-        '
-        Me.ColEnable.HeaderText = "Enable"
-        Me.ColEnable.Name = "ColEnable"
+        Me.BntStop.Location = New System.Drawing.Point(87, 514)
+        Me.BntStop.Name = "BntStop"
+        Me.BntStop.Size = New System.Drawing.Size(75, 23)
+        Me.BntStop.TabIndex = 5
+        Me.BntStop.Text = "Stop"
+        Me.BntStop.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -252,11 +280,13 @@ Partial Class Form1
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents BntSend As System.Windows.Forms.Button
     Friend WithEvents txtboxConsole As System.Windows.Forms.TextBox
+    Friend WithEvents bntRun As System.Windows.Forms.Button
+    Friend WithEvents bntLoad As System.Windows.Forms.Button
+    Friend WithEvents bntSave As System.Windows.Forms.Button
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents ColTxtBox As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ColTimeMS As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ColEnable As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents BntStop As System.Windows.Forms.Button
 
 End Class

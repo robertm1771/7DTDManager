@@ -15,6 +15,24 @@ Public Class Form1
     ' Create a TCP/IP socket.
     Dim WithEvents Client As New SocketsClient
 
+    Dim CommandsDataSet As New DataSet
+    Dim CommandTable As New DataTable
+
+    Private Sub FormLoaded(sender As Object, e As EventArgs) Handles Me.Load
+
+        Dim FilePath As String = My.Application.Info.DirectoryPath + "\Commands.xml"
+
+        If IO.File.Exists(FilePath) Then
+            CommandsDataSet.ReadXml(FilePath)
+        End If
+
+        DataGridView1.DataSource = CommandsDataSet
+        DataGridView1.DataMember = "Commands"
+        DataGridView1.Columns("Command").Width = 400
+        DataGridView1.Columns("Ticks").Width = 100
+        DataGridView1.Columns("Enabled").Width = 100
+    End Sub
+
     Private Sub bntConnect_Click(sender As Object, e As EventArgs) Handles bntConnect.Click
 
         Client.Connect(txtIP.Text, Int(txtPort.Text))
@@ -73,7 +91,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub BntSend_Click(sender As Object, e As EventArgs) Handles BntSend.Click
 
         Send(txtboxConsole.Text.ToString + vbCrLf)
 
@@ -89,8 +107,39 @@ Public Class Form1
 
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub bntSave_Click(sender As Object, e As EventArgs) Handles bntSave.Click
+
+        Dim FilePath As String = My.Application.Info.DirectoryPath + "\Commands.xml"
+
+        CommandsDataSet.WriteXml(FilePath)
+
 
     End Sub
 
+    Private Sub bntLoad_Click(sender As Object, e As EventArgs) Handles bntLoad.Click
+
+        Dim FilePath As String = My.Application.Info.DirectoryPath + "\Commands.xml"
+
+        CommandsDataSet.Clear()
+        CommandsDataSet.ReadXml(FilePath)
+
+    End Sub
+
+    Private Sub bntRun_Click(sender As Object, e As EventArgs) Handles bntRun.Click
+
+
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+        Dim Table As New DataTable
+
+        Table = CommandsDataSet.Tables("Commands")
+
+        For Each Row As DataRow In Table.Rows
+
+        Next
+
+    End Sub
 End Class

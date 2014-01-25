@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Commands xmlns="http://tempuri.org/Commands.xsd" >
+  <Command>"Sample"</Command>
+  <Ticks>1000</Ticks>
+  <Enabled>true</Enabled>
+</Commands> 
