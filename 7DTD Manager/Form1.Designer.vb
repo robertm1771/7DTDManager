@@ -38,12 +38,12 @@ Partial Class Form1
         Me.BntSend = New System.Windows.Forms.Button()
         Me.txtboxConsole = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BntStop = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.bntRun = New System.Windows.Forms.Button()
         Me.bntLoad = New System.Windows.Forms.Button()
         Me.bntSave = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.BntStop = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -195,6 +195,23 @@ Partial Class Form1
         Me.TabPage2.Text = "Message"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'BntStop
+        '
+        Me.BntStop.Location = New System.Drawing.Point(87, 514)
+        Me.BntStop.Name = "BntStop"
+        Me.BntStop.Size = New System.Drawing.Size(75, 23)
+        Me.BntStop.TabIndex = 5
+        Me.BntStop.Text = "Stop"
+        Me.BntStop.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(797, 508)
+        Me.DataGridView1.TabIndex = 4
+        '
         'bntRun
         '
         Me.bntRun.Location = New System.Drawing.Point(6, 514)
@@ -224,23 +241,6 @@ Partial Class Form1
         '
         'Timer1
         '
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(797, 508)
-        Me.DataGridView1.TabIndex = 4
-        '
-        'BntStop
-        '
-        Me.BntStop.Location = New System.Drawing.Point(87, 514)
-        Me.BntStop.Name = "BntStop"
-        Me.BntStop.Size = New System.Drawing.Size(75, 23)
-        Me.BntStop.TabIndex = 5
-        Me.BntStop.Text = "Stop"
-        Me.BntStop.UseVisualStyleBackColor = True
         '
         'Form1
         '

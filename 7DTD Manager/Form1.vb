@@ -15,6 +15,7 @@ Public Class Form1
     ' Create a TCP/IP socket.
     Dim WithEvents Client As New SocketsClient
 
+    Dim Ticks As Integer = 0
     Dim CommandsDataSet As New DataSet
     Dim CommandTable As New DataTable
 
@@ -127,7 +128,7 @@ Public Class Form1
 
     Private Sub bntRun_Click(sender As Object, e As EventArgs) Handles bntRun.Click
 
-
+        Timer1.Enabled = True
 
     End Sub
 
@@ -137,9 +138,24 @@ Public Class Form1
 
         Table = CommandsDataSet.Tables("Commands")
 
+        Ticks = Ticks + 1
         For Each Row As DataRow In Table.Rows
+            If Row.Item("Enabled") Then
+                If CType(Row.Item("Ticks"), Integer) = Ticks Then
+                    Send(CType(Row.Item("Command"), String) + vbLf)
+                End If
+            End If
+        Next (Row)
 
-        Next
+        If Ticks >= 32000 Then
+            Ticks = 0
+        End If
+
+    End Sub
+
+    Private Sub BntStop_Click(sender As Object, e As EventArgs) Handles BntStop.Click
+
+        Timer1.Enabled = False
 
     End Sub
 End Class
