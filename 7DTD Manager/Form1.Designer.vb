@@ -86,7 +86,7 @@ Partial Class Form1
         Me.txtIP.Name = "txtIP"
         Me.txtIP.Size = New System.Drawing.Size(110, 20)
         Me.txtIP.TabIndex = 3
-        Me.txtIP.Text = "76.72.160.245"
+        Me.txtIP.Text = "127.0.0.1"
         '
         'txtPort
         '
@@ -94,7 +94,7 @@ Partial Class Form1
         Me.txtPort.Name = "txtPort"
         Me.txtPort.Size = New System.Drawing.Size(49, 20)
         Me.txtPort.TabIndex = 5
-        Me.txtPort.Text = "35600"
+        Me.txtPort.Text = "25000"
         '
         'Label2
         '
@@ -241,6 +241,7 @@ Partial Class Form1
         '
         'Timer1
         '
+        Me.Timer1.Interval = 1000
         '
         'Form1
         '

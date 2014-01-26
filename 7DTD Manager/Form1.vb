@@ -32,6 +32,8 @@ Public Class Form1
         DataGridView1.Columns("Command").Width = 400
         DataGridView1.Columns("Ticks").Width = 100
         DataGridView1.Columns("Enabled").Width = 100
+        BntDisconnect.Enabled = False
+        bntConnect.Enabled = True
     End Sub
 
     Private Sub bntConnect_Click(sender As Object, e As EventArgs) Handles bntConnect.Click
@@ -40,6 +42,8 @@ Public Class Form1
 
         TimeRead.Enabled = True
         TimeRead.Start()
+        bntConnect.Enabled = False
+        BntDisconnect.Enabled = True
 
     End Sub
 
@@ -77,24 +81,32 @@ Public Class Form1
 
         Client.Disconnect()
         TimeRead.Stop()
+        bntConnect.Enabled = True
+        BntDisconnect.Enabled = False
 
     End Sub
 
     Private Sub bntSetTime0_Click(sender As Object, e As EventArgs) Handles bntSetTime0.Click
 
-        Send("st 0" + vbCrLf)
+        If Client.Connected Then
+            Send("st 0" + vbCrLf)
+        End If
 
     End Sub
 
     Private Sub bntListplayers_Click(sender As Object, e As EventArgs) Handles bntListplayers.Click
 
-        Send("lp" + vbCrLf)
+        If Client.Connected Then
+            Send("lp" + vbCrLf)
+        End If
 
     End Sub
 
     Private Sub BntSend_Click(sender As Object, e As EventArgs) Handles BntSend.Click
 
-        Send(txtboxConsole.Text.ToString + vbCrLf)
+        If Client.Connected Then
+            Send(txtboxConsole.Text.ToString + vbCrLf)
+        End If
 
     End Sub
 
@@ -102,7 +114,9 @@ Public Class Form1
 
         If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
             If Not txtboxConsole.Text.ToString = "" Then
-                Send(txtboxConsole.Text.ToString + vbCrLf)
+                If Client.Connected Then
+                    Send(txtboxConsole.Text.ToString + vbCrLf)
+                End If
             End If
         End If
 
@@ -128,7 +142,9 @@ Public Class Form1
 
     Private Sub bntRun_Click(sender As Object, e As EventArgs) Handles bntRun.Click
 
-        Timer1.Enabled = True
+        If Client.Connected Then
+            Timer1.Enabled = True
+        End If
 
     End Sub
 
@@ -147,8 +163,10 @@ Public Class Form1
             End If
         Next (Row)
 
-        If Ticks >= 32000 Then
+        'Console.WriteLine(Ticks.ToString + ".")
+        If Ticks >= 60 Then
             Ticks = 0
+            'Console.WriteLine("Ticks Reset")
         End If
 
     End Sub
@@ -156,6 +174,7 @@ Public Class Form1
     Private Sub BntStop_Click(sender As Object, e As EventArgs) Handles BntStop.Click
 
         Timer1.Enabled = False
+        Ticks = 0
 
     End Sub
 End Class
